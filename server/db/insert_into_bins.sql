@@ -1,0 +1,22 @@
+insert into bins (shelf_id, bin_id, bin_name) values ('A', 'A1', 'Bin 1');
+insert into bins (shelf_id, bin_id, bin_name) values ('A', 'A2', 'Bin 2');
+insert into bins (shelf_id, bin_id, bin_name) values ('A', 'A3', 'Bin 3');
+insert into bins (shelf_id, bin_id, bin_name) values ('A', 'A4', 'Bin 4');
+insert into bins (shelf_id, bin_id, bin_name) values ('A', 'A5', 'Bin 5');
+insert into bins (shelf_id, bin_id, bin_name) values ('B', 'B1', 'Bin 1');
+insert into bins (shelf_id, bin_id, bin_name) values ('B', 'B2', 'Bin 2');
+insert into bins (shelf_id, bin_id, bin_name) values ('B', 'B3', 'Bin 3');
+insert into bins (shelf_id, bin_id, bin_name) values ('B', 'B4', 'Bin 4');
+insert into bins (shelf_id, bin_id, bin_name) values ('B', 'B5', 'Bin 5');
+insert into bins (shelf_id, bin_id, bin_name) values ('C', 'C1', 'Bin 1');
+insert into bins (shelf_id, bin_id, bin_name) values ('C', 'C2', 'Bin 2');
+insert into bins (shelf_id, bin_id, bin_name) values ('C', 'C3', 'Bin 3');
+insert into bins (shelf_id, bin_id, bin_name) values ('C', 'C4', 'Bin 4');
+insert into bins (shelf_id, bin_id, bin_name) values ('C', 'C5', 'Bin 5');
+insert into bins (shelf_id, bin_id, bin_name) values ('D', 'D1', 'Bin 1');
+insert into bins (shelf_id, bin_id, bin_name) values ('D', 'D2', 'Bin 2');
+insert into bins (shelf_id, bin_id, bin_name) values ('D', 'D3', 'Bin 3');
+insert into bins (shelf_id, bin_id, bin_name) values ('D', 'D4', 'Bin 4');
+insert into bins (shelf_id, bin_id, bin_name) values ('D', 'D5', 'Bin 5');
+
+select * from bins;
