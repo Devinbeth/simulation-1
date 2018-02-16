@@ -20,9 +20,21 @@ export default class Bins extends Component {
         this.state.bins.sort((a, b) => a.bin_id > b.bin_id);
         let binButtons = this.state.bins.map((e, i) => {
             if (e.name) {
-                return <div key={i}><Link to={`/bin/${e.shelf_id}${e.bin_id}`}><h3> Bin {e.shelf_id}{e.bin_id} </h3></Link></div>;
+                return (
+                    <Link to={`/bin/${e.shelf_id}${e.bin_id}`} key={i}>
+                        <div className='container'>
+                            <span> Bin {e.shelf_id}{e.bin_id} </span>
+                        </div>
+                    </Link>
+                );
             } else {
-                return <div key={i}><Link to={`/create/${e.shelf_id}${e.bin_id}`}><h3> + Add Inventory to bin </h3></Link></div>;
+                return (
+                    <Link to={`/create/${e.shelf_id}${e.bin_id}`} key={i}>
+                        <div className='container'>
+                            <span> + Add Inventory to bin </span>
+                        </div>
+                    </Link>
+                );
             }
         });
         return (
