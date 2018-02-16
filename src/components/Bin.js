@@ -84,7 +84,7 @@ export default class Bin extends Component {
         return (
             <div>
                 <Link to='/'><h1>SHELFIE</h1></Link>
-                <Link to={`/bins/${this.props.match.params.id[0]}`}>Shelf {this.props.match.params.id[0]}</Link>
+                <Link to={`/bins/${this.props.match.params.id[0]}`}><h3>Shelf {this.props.match.params.id[0]}</h3></Link>
                 {this.fields()}
             </div>
         );

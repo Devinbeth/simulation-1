@@ -11,32 +11,31 @@ export default class Create extends Component {
         };
     }
 
-    update() {
-        if (window.confirm('Are you sure you want to update this product?')) {
+    create() {
+        if (window.confirm('Are you sure you want to add this product?')) {
             let changes = {
-                "name": this.state.name || this.state.bin.name,
-                "price": this.state.price || this.state.bin.price
+                "name": this.state.name,
+                "price": this.state.price
             };
-            axios.put(`/api/bin/${this.props.match.params.id}`, changes).then(res => {
-                this.setState({bin: res.data});
-            });
+            axios.post(`/api/bin/${this.props.match.params.id}`, changes).then();
         }
-        this.setState({editBool: false});
+        this.setState({name: '', price: 0});
     }
 
     render() {
         return (
             <div>
                 <Link to='/'><h1>SHELFIE</h1></Link>
+                <Link to={`/bins/${this.props.match.params.id[0]}`}><h3>Shelf {this.props.match.params.id[0]}</h3></Link>
                 <span> Name </span>
                 <br/>
-                <input />
+                <input onChange={(e) => this.setState({name: e.target.value})} />
                 <br/>
                 <span> Price </span>
                 <br/>
-                <input />
+                <input onChange={(e) => this.setState({price: e.target.value})}/>
                 <br/>
-                <button onClick={() => this.setState({editBool: true})}>+ Add to Inventory</button>
+                <button onClick={() => this.create()}>+ Add to Inventory</button>
                 <Link to={`/bins/${this.props.match.params.id[0]}`}><button>Cancel</button></Link>
             </div>
         );

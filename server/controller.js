@@ -1,6 +1,10 @@
 module.exports = {
     create: (req, res) => {
-
+        const db = req.app.get('db');
+        const shelf_id = req.params.id[0]
+        const bin_id = Number(req.params.id[1]);
+        db.create_bin([shelf_id, bin_id, req.body.name, req.body.price]).then(bin => res.status(200).send(bin))
+        .catch(() => res.status(500).send());
     },
     readBins: (req, res) => {
         const db = req.app.get('db');
