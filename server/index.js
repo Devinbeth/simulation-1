@@ -16,5 +16,8 @@ massive(process.env.connection_string).then(db => {
     app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 });
 
-app.get('/api/bins/:id', ctrl.getBins);
-app.get('/api/bin/:id', ctrl.getBin);
+app.post('/api/bin/', ctrl.create);
+app.get('/api/bins/:id', ctrl.readBins);
+app.get('/api/bin/:id', ctrl.readBin);
+app.put('/api/bin/:id', ctrl.update);
+app.delete('/api/bin/:id', ctrl.delete);

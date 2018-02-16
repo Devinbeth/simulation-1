@@ -1,1 +1,1 @@
-select * from bins where bin_id = $1;
+select * from bins where shelf_id = $1 and bin_id = $2;

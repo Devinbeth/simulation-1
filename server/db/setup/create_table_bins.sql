@@ -1,8 +1,7 @@
 create table bins (
     id serial primary key not null,
     shelf_id text not null,
-    bin_id text not null,
-    bin_name text,
+    bin_id integer not null,
     name text,
     price decimal,
     image text

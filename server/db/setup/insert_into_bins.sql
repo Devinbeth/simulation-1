@@ -1,0 +1,22 @@
+insert into bins (shelf_id, bin_id, name, price, image) values ('A', 1, 'DevMountain T-Shirt', 10.99, 'img.jpg');
+insert into bins (shelf_id, bin_id) values ('A', 2);
+insert into bins (shelf_id, bin_id) values ('A', 3);
+insert into bins (shelf_id, bin_id) values ('A', 4);
+insert into bins (shelf_id, bin_id) values ('A', 5);
+insert into bins (shelf_id, bin_id) values ('B', 1);
+insert into bins (shelf_id, bin_id) values ('B', 2);
+insert into bins (shelf_id, bin_id) values ('B', 3);
+insert into bins (shelf_id, bin_id) values ('B', 4);
+insert into bins (shelf_id, bin_id) values ('B', 5);
+insert into bins (shelf_id, bin_id) values ('C', 1);
+insert into bins (shelf_id, bin_id) values ('C', 2);
+insert into bins (shelf_id, bin_id) values ('C', 3);
+insert into bins (shelf_id, bin_id) values ('C', 4);
+insert into bins (shelf_id, bin_id) values ('C', 5);
+insert into bins (shelf_id, bin_id) values ('D', 1);
+insert into bins (shelf_id, bin_id) values ('D', 2);
+insert into bins (shelf_id, bin_id) values ('D', 3);
+insert into bins (shelf_id, bin_id) values ('D', 4);
+insert into bins (shelf_id, bin_id) values ('D', 5);
+
+select * from bins;
