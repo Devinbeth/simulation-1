@@ -1,0 +1,18 @@
+.bins header {
+    width: 25vw;
+}
+
+.bins nav {
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 13vh;
+    top: 0;
+    left: 25vw;
+    background-color: #D34735;
+}
+
+.bins header img {
+    padding-left: 10vw;
+    padding-top: 4vh;
+}

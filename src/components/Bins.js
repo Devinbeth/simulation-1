@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './bins.css';
+import logo from '../assets/logo.png';
 
 export default class Bins extends Component {
     constructor() {
@@ -21,7 +23,7 @@ export default class Bins extends Component {
         let binButtons = this.state.bins.map((e, i) => {
             if (e.name) {
                 return (
-                    <Link to={`/bin/${e.shelf_id}${e.bin_id}`} key={i}>
+                    <Link to={`/bin/${e.shelf_id}${e.bin_id}`} style={{textDecoration: 'none'}} key={i}>
                         <div className='container'>
                             <span> Bin {e.shelf_id}{e.bin_id} </span>
                         </div>
@@ -29,7 +31,7 @@ export default class Bins extends Component {
                 );
             } else {
                 return (
-                    <Link to={`/create/${e.shelf_id}${e.bin_id}`} key={i}>
+                    <Link to={`/create/${e.shelf_id}${e.bin_id}`} style={{textDecoration: 'none'}} key={i}>
                         <div className='container'>
                             <span> + Add Inventory to bin </span>
                         </div>
@@ -38,9 +40,16 @@ export default class Bins extends Component {
             }
         });
         return (
-            <div>
-                <Link to='/'><h1>SHELFIE</h1></Link>
-                {binButtons}
+            <div className='bins'>
+                <header>
+                    <Link to='/' style={{textDecoration: 'none'}}><img src={logo} alt='SHELFIE logo' /></Link>
+                </header>
+                <nav>
+                    <Link to='/' style={{textDecoration: 'none'}}><h1> Shelf {this.props.match.params.id} </h1></Link>
+                </nav>
+                <div className='body'>
+                    {binButtons}
+                </div>
             </div>
         );
     }

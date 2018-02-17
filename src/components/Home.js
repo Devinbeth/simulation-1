@@ -11,24 +11,24 @@ export default function Home() {
                 <h1>SHELFIE</h1>
             </header>
             <div className='body'>
-                <Link to='/bins/A'>
+                <Link to='/bins/A' style={{textDecoration: 'none'}}>
                     <div className='container'>
-                        <span className='button'> Shelf A </span>
+                        <span> Shelf A </span>
                     </div>
                 </Link>
-                <Link to='/bins/B'>
+                <Link to='/bins/B' style={{textDecoration: 'none'}}>
                     <div className='container'>
-                        <span className='button'> Shelf B </span>
+                        <span> Shelf B </span>
                     </div>
                 </Link>
-                <Link to='/bins/C'>
+                <Link to='/bins/C' style={{textDecoration: 'none'}}>
                     <div className='container'>
-                        <span className='button'> Shelf C </span>
+                        <span> Shelf C </span>
                     </div>
                 </Link>
-                <Link to='/bins/D'>
+                <Link to='/bins/D' style={{textDecoration: 'none'}}>
                     <div className='container'>
-                        <span className='button'> Shelf D </span>
+                        <span> Shelf D </span>
                     </div>
                 </Link>
             </div>

@@ -1,5 +1,4 @@
-.home header {
-    width: 100vw;
+header {
     display: flex;
     position: absolute;
     top: 0;
@@ -9,12 +8,28 @@
     color: white;
 }
 
-.home header img {
+.home header {
+    width: 100vw;
+}
+
+header img {
     display: flex;
     height: 50%;
 }
 
-.home .body {
+.home header img {
+    padding-left: 30vw;
+    padding-top: 4vh;
+}
+
+header h1 {
+    padding-left: 1vw;
+    padding-top: 3vh;
+    display: flex;
+    height: 50%;
+}
+
+.body {
     padding: 0% 25%;
     position: relative;
     top: 13vh;
@@ -27,15 +42,20 @@
     border-radius: 3px;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
     justify-content: center;
-    -ms-flex-align: center;
     align-items: center;
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
-    font-weight: bold;
     cursor: pointer;
     background-color: #D34735;
     color: white;
     text-decoration: none !important;
+}
+
+.home .container {
+    font-weight: bold;
+}
+
+.home .container span {
+    padding-right: 45%;
 }
