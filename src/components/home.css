@@ -47,9 +47,12 @@ header h1 {
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
     cursor: pointer;
-    background-color: #D34735;
     color: white;
     text-decoration: none !important;
+}
+
+.home .container {
+    background-color: #D34735;
 }
 
 .home .container {
