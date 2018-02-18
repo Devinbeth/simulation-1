@@ -69,7 +69,7 @@ export default class Bin extends Component {
                     <br/>
                     <span> Price </span>
                     <br/>
-                    <input type="text" value={this.state.bin[0].price} readOnly/>
+                    <input type="text" value={`$${this.state.bin[0].price}`} readOnly/>
                     <br/>
                     <span> Image URL </span>
                     <br/>
