@@ -5,7 +5,7 @@
 .bins nav {
     display: flex;
     position: absolute;
-    width: 100vw;
+    width: 75vw;
     height: 13vh;
     top: 0;
     left: 25vw;
@@ -28,4 +28,8 @@ nav h1 {
 
 .bins .container {
     background-color: #ED6B5A;
+}
+
+#add {
+    background-color: #FFB8AF;
 }

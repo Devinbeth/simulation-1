@@ -3,7 +3,7 @@ module.exports = {
         const db = req.app.get('db');
         const shelf_id = req.params.id[0]
         const bin_id = Number(req.params.id[1]);
-        db.create_bin([shelf_id, bin_id, req.body.name, req.body.price]).then(bin => res.status(200).send(bin))
+        db.create_bin([shelf_id, bin_id, req.body.name, req.body.price, req.body.image]).then(bin => res.status(200).send(bin))
         .catch(() => res.status(500).send());
     },
     readBins: (req, res) => {
@@ -22,7 +22,7 @@ module.exports = {
         const db = req.app.get('db');
         const shelf_id = req.params.id[0]
         const bin_id = Number(req.params.id[1]);
-        db.update_bin([shelf_id, bin_id, req.body.name, req.body.price]).then(bin => res.status(200).send(bin))
+        db.update_bin([shelf_id, bin_id, req.body.name, req.body.price, req.body.image]).then(bin => res.status(200).send(bin))
         .catch(() => res.status(500).send());
     },
     delete: (req, res) => {

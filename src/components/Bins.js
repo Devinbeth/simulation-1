@@ -23,16 +23,16 @@ export default class Bins extends Component {
         let binButtons = this.state.bins.map((e, i) => {
             if (e.name) {
                 return (
-                    <Link to={`/bin/${e.shelf_id}${e.bin_id}`} style={{textDecoration: 'none'}} key={i}>
+                    <Link to={`/bin/${e.shelf_id}${e.bin_id}`} key={i}>
                         <div className='container'>
-                            <span> Bin {e.shelf_id}{e.bin_id} </span>
+                            <span> Bin {e.bin_id} </span>
                         </div>
                     </Link>
                 );
             } else {
                 return (
-                    <Link to={`/create/${e.shelf_id}${e.bin_id}`} style={{textDecoration: 'none'}} key={i}>
-                        <div className='container'>
+                    <Link to={`/create/${e.shelf_id}${e.bin_id}`} key={i}>
+                        <div className='container' id='add'>
                             <span> + Add Inventory to bin </span>
                         </div>
                     </Link>
@@ -42,10 +42,10 @@ export default class Bins extends Component {
         return (
             <div className='bins'>
                 <header>
-                    <Link to='/' style={{textDecoration: 'none'}}><img src={logo} alt='SHELFIE logo' /></Link>
+                    <Link to='/'><img src={logo} alt='SHELFIE logo' /></Link>
                 </header>
                 <nav>
-                    <Link to='/' style={{textDecoration: 'none'}}><h1> Shelf {this.props.match.params.id} </h1></Link>
+                    <Link to={`/bins/${this.props.match.params.id}`}><h1> Shelf {this.props.match.params.id} </h1></Link>
                 </nav>
                 <div className='body'>
                     {binButtons}

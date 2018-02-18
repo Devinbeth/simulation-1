@@ -1,0 +1,90 @@
+.bin header {
+    width: 12vw;
+}
+
+.bin nav {
+    display: flex;
+    position: absolute;
+    width: 25vw;
+    height: 13vh;
+    top: 0;
+    left: 12vw;
+    background-color: #D34735;
+}
+
+.bin .nav {
+    display: flex;
+    position: absolute;
+    width: 63vw;
+    height: 13vh;
+    top: 0;
+    left: 37vw;
+    background-color: #ED6B5A;
+}
+
+nav h1 {
+    color: white;
+    padding-left: 2vw;
+    padding-top: 2vh;
+    display: flex;
+    height: 50%;
+    font-size: 180%;
+}
+
+.bin header img {
+    padding-left: 3.5vw;
+    padding-top: 3.5vh;
+}
+
+.edit {
+    position: relative;
+    top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.edit input, button {
+    border-radius: 10px;
+    padding: 1.5%;
+    min-width: 20%;
+    width: auto;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 1.5%;
+    font-weight: bold;
+}
+
+.edit input {
+    border: 1px solid #ab2a19;
+}
+.edit button {
+    border: none;
+    outline: none;
+}
+
+.edit span {
+    margin-top: 0;
+    margin-right: 30%;
+    margin-left: 1%;
+    text-align: left;
+    justify-content: left;
+}
+
+.edit img {
+    position: absolute;
+    left: 0;
+    top: 15;
+    max-width:45%;
+    max-height: 45%;
+    padding: 2% 3%;
+    width: auto;
+    height: auto;
+}
+
+.save {
+    background: #40F99B;
+    border: none;
+    border-radius: 35px;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './bin.css';
+import logo from '../assets/logo.png';
 
 export default class Bin extends Component {
     constructor() {
@@ -8,12 +10,13 @@ export default class Bin extends Component {
         this.state = {
             bin: [],
             editBool: false,
-            name: '',
-            price: 0
+            name: null,
+            price: null,
+            image: null
         };
-        this.fields = this.fields.bind(this);
         this.update = this.update.bind(this);
         this.remove = this.remove.bind(this);
+        this.fields = this.fields.bind(this);
     }
 
     componentDidMount() {
@@ -26,13 +29,19 @@ export default class Bin extends Component {
         if (window.confirm('Are you sure you want to update this product?')) {
             let changes = {
                 "name": this.state.name || this.state.bin.name,
-                "price": this.state.price || this.state.bin.price
+                "price": this.state.price || this.state.bin.price,
+                "image": this.state.image || this.state.bin.image
             };
             axios.put(`/api/bin/${this.props.match.params.id}`, changes).then(res => {
                 this.setState({bin: res.data});
             });
         }
-        this.setState({editBool: false});
+        this.setState({
+            editBool: false,
+            name: null,
+            price: null,
+            image: null
+        });
     }
 
     remove() {
@@ -41,13 +50,19 @@ export default class Bin extends Component {
                 this.setState({bin: res.data});
             });
         }
+        this.setState({
+            editBool: false,
+            name: null,
+            price: null,
+            image: null
+        });
     }
 
     fields() {
         if (this.state.bin.length > 0 && this.state.editBool === false) {
             return (
-                <div>
-                    <img alt=''/>
+                <div className='edit'>
+                    <img src={this.state.bin[0].image} alt={this.state.bin[0].name}/>
                     <span> Name </span>
                     <br/>
                     <input type="text" value={this.state.bin[0].name} readOnly/>
@@ -56,15 +71,19 @@ export default class Bin extends Component {
                     <br/>
                     <input type="text" value={this.state.bin[0].price} readOnly/>
                     <br/>
-                    <button onClick={() => this.setState({editBool: true})}>Edit</button>
-                    <button onClick={() => this.remove()}>Delete</button>
+                    <span> Image URL </span>
+                    <br/>
+                    <input type="text" value={this.state.bin[0].image} readOnly/>
+                    <br/>
+                    <button onClick={() => this.setState({editBool: true})}>EDIT</button>
+                    <button onClick={() => this.remove()}>DELETE</button>
                 </div>
             );
         }
         else if (this.state.bin.length > 0 && this.state.editBool === true) {
             return (
-                <div>
-                    <img alt=''/>
+                <div className='edit'>
+                    <img src={this.state.bin[0].image} alt={this.state.bin[0].name}/>
                     <span> Name </span>
                     <br/>
                     <input onChange={(e) => this.setState({name: e.target.value})}/>
@@ -73,8 +92,12 @@ export default class Bin extends Component {
                     <br/>
                     <input onChange={(e) => this.setState({price: e.target.value})}/>
                     <br/>
-                    <button onClick={() => this.setState({editBool: false})}>Cancel</button>
-                    <button onClick={() => this.update()}>Save</button>
+                    <span> Image URL </span>
+                    <br/>
+                    <input onChange={(e) => this.setState({image: e.target.value})}/>
+                    <br/>
+                    <button onClick={() =>  this.setState({editBool: false, name: null, price: null, image: null})}>CANCEL</button>
+                    <button onClick={() => this.update()} className='save'>SAVE</button>
                 </div>
             );
         }
@@ -82,9 +105,16 @@ export default class Bin extends Component {
 
     render() {
         return (
-            <div>
-                <Link to='/'><h1>SHELFIE</h1></Link>
-                <Link to={`/bins/${this.props.match.params.id[0]}`}><h3>Shelf {this.props.match.params.id[0]}</h3></Link>
+            <div className='bin'>
+                <header>
+                    <Link to='/'><img src={logo} alt='SHELFIE logo' /></Link>
+                </header>
+                <nav>
+                    <Link to={`/bins/${this.props.match.params.id[0]}`}><h1> Shelf {this.props.match.params.id[0]} </h1></Link>
+                </nav>
+                <nav className='nav'>
+                    <Link to={`/bin/${this.props.match.params.id[0] + this.props.match.params.id[1]}`}><h1> Bin {this.props.match.params.id[1]} </h1></Link>
+                </nav>
                 {this.fields()}
             </div>
         );

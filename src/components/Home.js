@@ -11,22 +11,22 @@ export default function Home() {
                 <h1>SHELFIE</h1>
             </header>
             <div className='body'>
-                <Link to='/bins/A' style={{textDecoration: 'none'}}>
+                <Link to='/bins/A'>
                     <div className='container'>
                         <span> Shelf A </span>
                     </div>
                 </Link>
-                <Link to='/bins/B' style={{textDecoration: 'none'}}>
+                <Link to='/bins/B'>
                     <div className='container'>
                         <span> Shelf B </span>
                     </div>
                 </Link>
-                <Link to='/bins/C' style={{textDecoration: 'none'}}>
+                <Link to='/bins/C'>
                     <div className='container'>
                         <span> Shelf C </span>
                     </div>
                 </Link>
-                <Link to='/bins/D' style={{textDecoration: 'none'}}>
+                <Link to='/bins/D'>
                     <div className='container'>
                         <span> Shelf D </span>
                     </div>
