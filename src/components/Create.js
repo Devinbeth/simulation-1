@@ -8,9 +8,9 @@ export default class Create extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
-            price: 0,
-            image: ''
+            name: "",
+            price: "",
+            image: ""
         };
     }
 
@@ -23,7 +23,7 @@ export default class Create extends Component {
             };
             axios.post(`/api/bin/${this.props.match.params.id}`, changes).then();
         }
-        this.setState({name: '', price: 0});
+        this.setState({name: '', price: "", image: ""});
     }
 
     render() {
@@ -51,7 +51,7 @@ export default class Create extends Component {
                     <br/>
                     <input onChange={(e) => this.setState({image: e.target.value})}/>
                     <br/>
-                    <button onClick={() => this.create()} className='save'>+ Add to Inventory</button>
+                    <button onClick={() => this.create()} className='save'><Link to={`/bin/${this.props.match.params.id}`}>+ Add to Inventory</Link></button>
                     <button><Link to={`/bins/${this.props.match.params.id[0]}`} id='cancel'>Cancel</Link></button>
                 </div>
             </div>

@@ -10,9 +10,9 @@ export default class Bin extends Component {
         this.state = {
             bin: [],
             editBool: false,
-            name: null,
-            price: null,
-            image: null
+            name: "",
+            price: 0,
+            image: ""
         };
         this.update = this.update.bind(this);
         this.remove = this.remove.bind(this);
@@ -27,20 +27,20 @@ export default class Bin extends Component {
 
     update() {
         if (window.confirm('Are you sure you want to update this product?')) {
-            let changes = {
+            let newProduct = {
                 "name": this.state.name || this.state.bin.name,
                 "price": this.state.price || this.state.bin.price,
                 "image": this.state.image || this.state.bin.image
             };
-            axios.put(`/api/bin/${this.props.match.params.id}`, changes).then(res => {
+            axios.put(`/api/bin/${this.props.match.params.id}`, newProduct).then(res => {
                 this.setState({bin: res.data});
             });
         }
         this.setState({
             editBool: false,
-            name: null,
-            price: null,
-            image: null
+            name: "",
+            price: 0,
+            image: ""
         });
     }
 
@@ -52,9 +52,9 @@ export default class Bin extends Component {
         }
         this.setState({
             editBool: false,
-            name: null,
-            price: null,
-            image: null
+            name: "",
+            price: 0,
+            image: ""
         });
     }
 
@@ -96,8 +96,8 @@ export default class Bin extends Component {
                     <br/>
                     <input onChange={(e) => this.setState({image: e.target.value})}/>
                     <br/>
-                    <button onClick={() =>  this.setState({editBool: false, name: null, price: null, image: null})}>CANCEL</button>
-                    <button onClick={() => this.update()} className='save'>SAVE</button>
+                    <button onClick={() =>  this.setState({editBool: false, name: "", price: 0, image: ""})}>CANCEL</button>
+                    <button onClick={() => this.update()} className='save'><Link to={`/bin/${this.props.match.params.id}`}>SAVE</Link></button>
                 </div>
             );
         }
