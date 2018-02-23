@@ -25,13 +25,27 @@ export default class Bin extends Component {
         });
     }
 
+    componentWillUpdate() {
+
+    }
+
     update() {
+        // if (!this.state.name || !this.state.price || !this.state.image) {
+        //     alert('You must fill out all fields.');
+        //     this.setState({
+        //         editBool: false,
+        //         name: "",
+        //         price: 0,
+        //         image: ""
+        //     });
+        // }
         if (window.confirm('Are you sure you want to update this product?')) {
             let newProduct = {
-                "name": this.state.name || this.state.bin.name,
-                "price": this.state.price || this.state.bin.price,
-                "image": this.state.image || this.state.bin.image
+                "name": this.state.name ? this.state.name : this.state.bin.name,
+                "price": this.state.price ? this.state.price : this.state.bin.price,
+                "image": this.state.image ? this.state.image : this.state.bin.image
             };
+            console.log(newProduct);
             axios.put(`/api/bin/${this.props.match.params.id}`, newProduct).then(res => {
                 this.setState({bin: res.data});
             });
@@ -69,7 +83,7 @@ export default class Bin extends Component {
                     <br/>
                     <span> Price </span>
                     <br/>
-                    <input type="text" value={`$${this.state.bin[0].price}`} readOnly/>
+                    <input type="text" value={this.state.bin[0].price} readOnly/>
                     <br/>
                     <span> Image URL </span>
                     <br/>
@@ -97,7 +111,7 @@ export default class Bin extends Component {
                     <input onChange={(e) => this.setState({image: e.target.value})}/>
                     <br/>
                     <button onClick={() =>  this.setState({editBool: false, name: "", price: 0, image: ""})}>CANCEL</button>
-                    <button onClick={() => this.update()} className='save'><Link to={`/bin/${this.props.match.params.id}`}>SAVE</Link></button>
+                    <button onClick={() => this.update()} className='save'>SAVE</button>
                 </div>
             );
         }
