@@ -25,8 +25,10 @@ export default class Bin extends Component {
         });
     }
 
-    componentWillUpdate() {
-
+    componentWillReceiveProps() {
+        axios.get(`/api/bin/${this.props.match.params.id}`).then(res => {
+            this.setState({bin: res.data});
+        });
     }
 
     update() {

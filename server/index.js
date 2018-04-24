@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const port = 3005;
+const port = 3010;
 
 massive(process.env.connection_string).then(db => {
     app.set('db', db);

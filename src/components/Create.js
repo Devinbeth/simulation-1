@@ -21,7 +21,11 @@ export default class Create extends Component {
                 "price": this.state.price,
                 "image": this.state.image
             };
-            axios.post(`/api/bin/${this.props.match.params.id}`, changes).then();
+            axios.post(`/api/bin/${this.props.match.params.id}`, changes)
+                .then(res => {
+                    console.log(res)
+                    this.props.history.push(`/bin/${res.data[0].shelf_id + res.data[0].bin_id}`)
+                });
         }
         this.setState({name: '', price: "", image: ""});
     }
